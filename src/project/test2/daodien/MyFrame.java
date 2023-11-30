@@ -1,7 +1,7 @@
 package project.test2.daodien;
 
 import javax.swing.*;
-import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,13 +18,18 @@ public class MyFrame extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1280, 853);
         this.setResizable(false);
+
         ImageIcon logo = new ImageIcon("src\\project\\test2\\imag\\logo.png");
+
+      //  ImageIcon logo = new ImageIcon("src\\project\\test2\\imag");
+
         this.getContentPane().setBackground(Color.black);
         this.setIconImage(logo.getImage());
         ImageIcon iconBk = new ImageIcon("src\\project\\test2\\imag\\.png");
         bk = new JLabel("",iconBk,JLabel.CENTER);
         add(bk);
         this.setLocationRelativeTo(null);
+
         this.setVisible(true);
 
         ImageIcon iconStart = new ImageIcon("src\\project\\test2\\imag\\imageStart.png");
@@ -33,6 +38,17 @@ public class MyFrame extends JFrame implements ActionListener {
         start.setIcon(iconStart);
         start.setBorderPainted(false);
         start.setContentAreaFilled(false);
+
+
+        start = new JButton();
+        start.setBounds(540, 100, 200, 100);
+        start.setText("START");
+        start.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        start.setForeground(Color.red);
+        start.setBorderPainted(false);
+        start.setContentAreaFilled(false);
+        start.addActionListener(this);
+
         bk.add(start);
 
         huong = new JButton();
@@ -44,21 +60,30 @@ public class MyFrame extends JFrame implements ActionListener {
         huong.setContentAreaFilled(false);
        bk.add(huong);
 
+
         ImageIcon iconExit = new ImageIcon("src\\project\\test2\\imag\\exit.png");
         exit = new JButton();
         exit.setBounds(540, 300, 200, 100);
         exit.setIcon(iconExit);
+        exit = new JButton();
+        exit.setBounds(540, 300, 200, 100);
+        exit.setText("EXIT");
+        exit.setFont(new Font("Comic Sans", Font.BOLD, 25));
+        exit.setForeground(Color.red);
+
         exit.setBorderPainted(false);
         exit.setContentAreaFilled(false);
         exit.addActionListener(this);
         bk.add(exit);
+        this.setVisible(true);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == start) {
-
+            new LeverGame();
+            this.setVisible(false);
         }
         if (e.getSource() == huong) {
 
