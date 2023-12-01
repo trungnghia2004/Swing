@@ -1,7 +1,7 @@
-package project.test2.daodien;
+package project.daodien;
 
-
-import project.test2.start.MyFrame2;
+import project.test.MyFrame;
+import project.test2.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,10 +18,10 @@ public class LeverGame extends JFrame implements ActionListener {
     LeverGame() {
         this.setSize(1280, 853);
         this.setResizable(false);
-        ImageIcon logo = new ImageIcon("src\\project\\test2\\imag");
+        ImageIcon logo = new ImageIcon("src\\project\\imag");
         this.getContentPane().setBackground(Color.black);
         this.setIconImage(logo.getImage());
-        ImageIcon iconBk = new ImageIcon("src\\project\\test2\\imag");
+        ImageIcon iconBk = new ImageIcon("src\\project\\imag\\");
         bk = new JLabel("", iconBk, JLabel.CENTER);
         add(bk);
         this.setLocationRelativeTo(null);
@@ -43,7 +43,8 @@ public class LeverGame extends JFrame implements ActionListener {
         medium.setForeground(Color.red);
         medium.setBorderPainted(false);
         medium.setContentAreaFilled(false);
-       bk.add(medium);
+        medium.addActionListener(this);
+        bk.add(medium);
 
         easy = new JButton();
         easy.setBounds(540, 300, 200, 100);
@@ -71,18 +72,19 @@ public class LeverGame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == hard) {
-            new MyFrame2();
+            new Window();
             this.setVisible(false);
         }
         if (e.getSource() == medium) {
-
+            new MyFrame();
+            this.setVisible(false);
         }
-        if (e.getSource() == easy){
+        if (e.getSource() == easy) {
 
         }
         if (e.getSource() == exit) {
-            new MyFrame();
-           this.setVisible(false);
+            new daodien();
+            this.setVisible(false);
         }
     }
 }

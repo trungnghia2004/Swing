@@ -1,4 +1,6 @@
-package project.test2.start;
+package project.test;
+
+import project.tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,17 +63,17 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
     Image wall;
     Image floor;
     Image water;
-    Image door;
+//    Image door;
     public void inputDataImage() {
-        loli = new ImageIcon("src\\project\\test2\\imag\\loli.png").getImage();
-        virus = new ImageIcon("src\\project\\test2\\imag\\quai.png").getImage();
-        wall = new ImageIcon("src\\project\\test2\\imag").getImage();
-        floor = new ImageIcon("src\\project\\test2\\imag").getImage();
-        water = new ImageIcon("src\\project\\test2\\imag").getImage();
-        door = new ImageIcon("src\\project\\test2\\imag").getImage();
+        loli = new ImageIcon("src\\project\\imag\\loli.png").getImage();
+        virus = new ImageIcon("src\\project\\imag\\quai.png").getImage();
+        wall = new ImageIcon("src\\project\\imag\\tuong.png").getImage();
+        floor = new ImageIcon("src\\project\\imag\\").getImage();
+        water = new ImageIcon("src\\project\\imag\\").getImage();
+//        door = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\virus1.jpg").getImage();
     }
 
-    public MyPanel(int width, int height) {
+    MyPanel(int width, int height) {
         this.width = width;
         this.height = height;
         setPreferredSize(new Dimension(width, height));
@@ -155,50 +157,28 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-//        for (int i = 0; i < matrix.length; i++) {
-//            for (int j = 0; j < matrix[0].length; j++) {
-//                Image image = switch (matrix[i][j]) {
-//                    case 1 -> wall;
-//                    case -1 -> water;
-//                    default -> floor;
-//                };
-//                g.drawImage(image,j * tileSize + 100, i * tileSize + 100, null);
-//            }
-//        }
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                Color color;
-                switch (matrix[i][j]) {
-                    case 1:
-                        color = Color.BLACK;
-                        break;
-                    case -1:
-                        color = Color.RED;
-                        break;
-                    default:
-                        color = Color.WHITE;
-                }
-                g.setColor(color);
-                g.fillRect(25 * j+100, 25 * i+100, 25, 25);
-                g.setColor(Color.black);
-                g.drawRect(25 * j+100, 25 * i+100, 25, 25);
+                Image image = switch (matrix[i][j]) {
+                    case 1 -> wall;
+                    case -1 -> water;
+                    default -> floor;
+                };
+                g.drawImage(image,j * tileSize + 100, i * tileSize + 100, null);
             }
         }
 
-        g.setColor(Color.blue);
-        g.fillRect(player.y * tileSize + 100, player.x * tileSize + 100, tileSize, tileSize);
+        g.drawImage(loli,player.y * tileSize + 100, player.x * tileSize + 100, null);
 
         if (gameOver) return;
         moveGhost();
         newStack.pop();
         Node node = newStack.peek();
-        g.setColor(Color.white);
-        g.fillRect(wolf.y * tileSize + 100, wolf.x * tileSize + 100, tileSize, tileSize);
+        g.drawImage(floor,wolf.y * tileSize + 100, wolf.x * tileSize + 100, null);
 
         wolf.x = node.x;
         wolf.y = node.y;
-        g.setColor(Color.red);
-        g.fillRect(wolf.y * tileSize + 100, wolf.x * tileSize + 100, tileSize, tileSize);
+        g.drawImage(virus,wolf.y * tileSize + 100, wolf.x * tileSize + 100, null);
     }
 
     @Override
@@ -209,7 +189,7 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
 //            case 's' : if (matrix[player.x+1][player.y]!=1) player.x+=1; break;
 //            case 'w' : if (matrix[player.x-1][player.y]!=1) player.x-=1; break;
 //        }
-//
+
 //        moved = 1;
     }
 
@@ -245,5 +225,4 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
         }
         repaint();
     }
-
 }
