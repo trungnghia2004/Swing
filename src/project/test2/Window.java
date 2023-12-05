@@ -3,9 +3,9 @@ package project.test2;
 import javax.swing.JFrame;
 
 public class Window {
-    public Window() {
-        JFrame window = new JFrame();
-        // window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public static void main(String[] args) {
+        JFrame window = new JFrame("Escape the dungeon");
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(true);
 
         GamePanel gamePanel = new GamePanel();
@@ -14,5 +14,8 @@ public class Window {
 
         window.setLocationRelativeTo(null);
         window.setVisible(true);
+
+        gamePanel.setUpGame();
+        gamePanel.startGameThread();
     }
 }

@@ -1,19 +1,14 @@
 package project.tile;
 
-import project.test.MyPanel;
+
 import project.test2.GamePanel;
 
-//import javax.swing.*;
 import java.awt.*;
-//import java.io.BufferedReader;
-//import java.io.FileReader;
-//import java.io.InputStream;
-//import java.io.InputStreamReader;
 
 public class TileManager {
     GamePanel gp;
-    //    Tile[] tiles;
-    int[][] map = {
+    public Tile[] tiles;
+    public int[][] map = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 1, 2, 3, 2, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 3, 2, 3, 2, 1, 1, 1, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 1, 1, 1},
             {1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 2, 1, 1, 3, 1, 2, 3, 2, 3, 2, 3, 2, 3, 1, 1, 5, 5, 5, 5, 5, 5, 5, 1, 1, 1, 1, 3, 2, 3, 2, 3, 2, 1},
@@ -66,9 +61,9 @@ public class TileManager {
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
-//        tiles = new Tile[10];
+        tiles = new Tile[10];
 //        map = new int[gp.maxWorldRow][gp.maxWorldCol];
-//        getTileImage();
+        getTileImage();
 //        loadMap();
         colors = new Color[10];
         colors[0]=new Color(4,76,1);
@@ -77,29 +72,38 @@ public class TileManager {
         colors[3] = Color.magenta;
         colors[4]=Color.green;
         colors[5]=Color.yellow;
-        colors[6]=Color.red;
+        colors[6]=Color.pink;
     }
+    public void getTileImage() {
+//        try {
+            tiles[0] = new Tile();
+            tiles[1] = new Tile();
+            tiles[2] = new Tile();
+            tiles[3] = new Tile();
+            tiles[4] = new Tile();
+            tiles[5] = new Tile();
+            tiles[6] = new Tile();
 
-//    public void getTileImage() {
+//            tiles[0].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[1].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[2].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[3].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[4].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[5].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[6].image = ImageIO.read(new File("src/res/player/up1.png"));
 
-    //            tiles[0] = new Tile();
-//            tiles[1] = new Tile();
-//            tiles[2] = new Tile();
-//            tiles[3] = new Tile();
-//            tiles[4] = new Tile();
-//            tiles[5] = new Tile();
-//            tiles[6] = new Tile();
-//            tiles[0].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\down1.png").getImage();
-//            tiles[1].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\down2.png").getImage();
-//            tiles[2].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\floor1.png").getImage();
-//            tiles[3].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\up1.png").getImage();
-//            tiles[4].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\left1.png").getImage();
-//            tiles[5].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\water1.png").getImage();
-//            tiles[6].image = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\up2.png").getImage();
-//    }
+            tiles[1].collision = true;
+            tiles[4].collision = true;
+            tiles[5].collision = true;
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+    }
 //    public void loadMap() {
 //        try {
-//            BufferedReader br = new BufferedReader(new FileReader("src/data/maze.txt"));
+//            BufferedReader br = new BufferedReader(new FileReader("src/newProject.data/maze.txt"));
 //
 //            String line;
 //            int row = 0;

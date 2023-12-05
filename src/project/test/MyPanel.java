@@ -1,7 +1,5 @@
 package project.test;
 
-import project.tile.TileManager;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -58,20 +56,20 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
     boolean[][] visited;
     int moved = 0;
     Stack<Node> newStack;
-    Image loli;
-    Image virus;
-    Image wall;
-    Image floor;
-    Image water;
+//    Image loli;
+//    Image virus;
+//    Image wall;
+//    Image floor;
+//    Image water;
 //    Image door;
-    public void inputDataImage() {
-        loli = new ImageIcon("src\\project\\imag\\loli.png").getImage();
-        virus = new ImageIcon("src\\project\\imag\\quai.png").getImage();
-        wall = new ImageIcon("src\\project\\imag\\tuong.png").getImage();
-        floor = new ImageIcon("src\\project\\imag\\").getImage();
-        water = new ImageIcon("src\\project\\imag\\").getImage();
-//        door = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\virus1.jpg").getImage();
-    }
+//    public void inputDataImage() {
+//        loli = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\loli1.png").getImage();
+//        virus = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\virus1.jpg").getImage();
+//        wall = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\wall1.jpg").getImage();
+//        floor = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\floor1.png").getImage();
+//        water = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\water1.png").getImage();
+////        door = new ImageIcon("C:\\Users\\Administrator\\Pictures\\Saved Pictures\\virus1.jpg").getImage();
+//    }
 
     MyPanel(int width, int height) {
         this.width = width;
@@ -81,7 +79,7 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
         wolf = new tile(1, 11);
         player = new tile(1, 1);
 
-        inputDataImage();
+//        inputDataImage();
 
         addKeyListener(this);
         setFocusable(true);
@@ -113,12 +111,11 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
         int x;
         int y;
         while (!stack.isEmpty()) {
-            temp = stack.peek();
+            temp = stack.pop();
             x = temp.x;
             y = temp.y;
             int dir = temp.direction;
             temp.direction += 1;
-            stack.pop();
             stack.push(temp);
             if (x == player.x && y == player.y) {
                 return;
@@ -148,7 +145,6 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
                     stack.push(temp1);
                 }
             } else {
-                visited[x][y] = false;
                 stack.pop();
             }
         }
@@ -159,26 +155,33 @@ public class MyPanel extends JPanel implements ActionListener, KeyListener {
         super.paint(g);
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
-                Image image = switch (matrix[i][j]) {
-                    case 1 -> wall;
-                    case -1 -> water;
-                    default -> floor;
+                Color color = switch (matrix[i][j]) {
+                    case 1 -> Color.black;
+                    case -1 -> Color.yellow;
+                    default -> Color.white;
                 };
-                g.drawImage(image,j * tileSize + 100, i * tileSize + 100, null);
+                g.setColor(color);
+                g.fillRect(j*25+100, i*25+100, 25, 25);
+//                g.drawImage(image,j * tileSize + 100, i * tileSize + 100, null);
             }
         }
 
-        g.drawImage(loli,player.y * tileSize + 100, player.x * tileSize + 100, null);
+        g.setColor(Color.BLUE);
+        g.fillRect(player.y * tileSize + 100, player.x * tileSize + 100, tileSize, tileSize);
 
         if (gameOver) return;
         moveGhost();
         newStack.pop();
         Node node = newStack.peek();
-        g.drawImage(floor,wolf.y * tileSize + 100, wolf.x * tileSize + 100, null);
+        g.setColor(Color.white);
+        g.fillRect(wolf.y*25+100, wolf.x*25+100, 25, 25);
+//        g.drawImage(floor,wolf.y * tileSize + 100, wolf.x * tileSize + 100, null);
 
         wolf.x = node.x;
         wolf.y = node.y;
-        g.drawImage(virus,wolf.y * tileSize + 100, wolf.x * tileSize + 100, null);
+        g.setColor(Color.red);
+        g.fillRect(wolf.y*25+100, wolf.x*25+100, 25, 25);
+//        g.drawImage(virus,wolf.y * tileSize + 100, wolf.x * tileSize + 100, null);
     }
 
     @Override

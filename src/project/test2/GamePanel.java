@@ -1,8 +1,8 @@
 package project.test2;
 
-//import entity.Player;
-//import tile.TileManager;
 
+
+import project.entity.Entity;
 import project.entity.Player;
 import project.tile.TileManager;
 
@@ -17,8 +17,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxScreenRow = 12;
     public final int screenWidth = maxScreenCol * tileSize;
     public final int screenHeight = maxScreenRow * tileSize;
-    public final int maxWorldCol = 47;
-    public final int maxWorldRow = 56;
+//    public final int maxWorldCol = 47;
+//    public final int maxWorldRow = 56;
 //    public final int worldWidth = tileSize * maxWorldCol;
 //    public final int worldHeight = tileSize * maxWorldRow;
 
@@ -26,7 +26,10 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     KeyHandler keyH = new KeyHandler();
     public Player player = new Player(this, keyH);
-    TileManager tileManager = new TileManager(this);
+    public CollisionChecker collisionChecker = new CollisionChecker(this);
+    public AssetSetter assetSetter = new AssetSetter(this);
+    public Entity[] monsters= new Entity[10];
+    public TileManager tileManager = new TileManager(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -81,21 +84,31 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
+    public void setUpGame() {
+        assetSetter.setMonster();
+    }
 
     public void update() {
         player.update();
+        for (int i = 0; i < monsters.length; i++) {
+            if (monsters[i]!=null) {
+                monsters[i].update();
+            }
+        }
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        draw(g2);
-        g2.dispose();
-    }
-
-    public void draw(Graphics2D g2) {
         tileManager.draw(g2);
         player.draw(g2);
+        
+        //monster
+        for (int i = 0; i < monsters.length; i++) {
+            if (monsters[i] != null) {
+                monsters[i].draw(g2, this);
+            }
+        }
+        g2.dispose();
     }
-
 }
