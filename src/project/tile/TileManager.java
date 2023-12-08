@@ -5,6 +5,7 @@ import project.test2.GamePanel;
 
 import java.awt.*;
 
+
 public class TileManager {
     GamePanel gp;
     public Tile[] tiles;
@@ -84,8 +85,8 @@ public class TileManager {
             tiles[5] = new Tile();
             tiles[6] = new Tile();
 
-//            tiles[0].image = ImageIO.read(new File("src/res/player/up1.png"));
-//            tiles[1].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[0].image = ImageIO.read(new File("src\\project\\imag\\congvao.png"));
+//            tiles[1].image = ImageIO.read(new File("src\\project\\imag\\tuong.png"));
 //            tiles[2].image = ImageIO.read(new File("src/res/player/up1.png"));
 //            tiles[3].image = ImageIO.read(new File("src/res/player/up1.png"));
 //            tiles[4].image = ImageIO.read(new File("src/res/player/up1.png"));
@@ -95,7 +96,7 @@ public class TileManager {
             tiles[1].collision = true;
             tiles[4].collision = true;
             tiles[5].collision = true;
-//        }
+//       }
 //        catch (IOException e) {
 //            e.printStackTrace();
 //        }

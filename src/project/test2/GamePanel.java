@@ -8,6 +8,7 @@ import project.tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16;
@@ -31,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[] monsters= new Entity[10];
     public TileManager tileManager = new TileManager(this);
 
-    public GamePanel() {
+    public GamePanel() throws IOException {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);

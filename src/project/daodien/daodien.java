@@ -59,11 +59,8 @@ public class daodien extends JFrame implements ActionListener {
         huong.setContentAreaFilled(false);
        bk.add(huong);
 
-
-        ImageIcon iconExit = new ImageIcon("src\\project\\test2\\imag\\exit.png");
         exit = new JButton();
         exit.setBounds(540, 300, 200, 100);
-        exit.setIcon(iconExit);
         exit = new JButton();
         exit.setBounds(540, 300, 200, 100);
         exit.setText("EXIT");
