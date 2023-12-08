@@ -5,13 +5,12 @@ import project.test2.GamePanel;
 
 import java.awt.*;
 
-
 public class TileManager {
     GamePanel gp;
     public Tile[] tiles;
     public int[][] map = {
-            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 2, 3, 2, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 3, 2, 3, 2, 1, 1, 1, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 1, 1, 1},
+            {2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {2, 2, 2, 3, 2, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 3, 2, 3, 2, 1, 1, 1, 4, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 1, 1, 1},
             {1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 2, 1, 1, 3, 1, 2, 3, 2, 3, 2, 3, 2, 3, 1, 1, 5, 5, 5, 5, 5, 5, 5, 1, 1, 1, 1, 3, 2, 3, 2, 3, 2, 1},
             {1, 4, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 2, 1, 3, 5, 5, 5, 5, 5, 5, 2, 1, 1, 5, 5, 5, 5, 5, 5, 5, 1, 1, 1, 1, 2, 1, 1, 1, 1, 3, 1},
             {1, 4, 3, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 2, 1, 1, 2, 1, 2, 5, 5, 5, 5, 5, 5, 3, 1, 1, 5, 5, 5, 5, 5, 5, 5, 1, 1, 1, 1, 3, 1, 1, 1, 1, 2, 1},
@@ -85,8 +84,8 @@ public class TileManager {
             tiles[5] = new Tile();
             tiles[6] = new Tile();
 
-//            tiles[0].image = ImageIO.read(new File("src\\project\\imag\\congvao.png"));
-//            tiles[1].image = ImageIO.read(new File("src\\project\\imag\\tuong.png"));
+//            tiles[0].image = ImageIO.read(new File("src/res/player/up1.png"));
+//            tiles[1].image = ImageIO.read(new File("src/res/player/up1.png"));
 //            tiles[2].image = ImageIO.read(new File("src/res/player/up1.png"));
 //            tiles[3].image = ImageIO.read(new File("src/res/player/up1.png"));
 //            tiles[4].image = ImageIO.read(new File("src/res/player/up1.png"));
@@ -96,7 +95,7 @@ public class TileManager {
             tiles[1].collision = true;
             tiles[4].collision = true;
             tiles[5].collision = true;
-//       }
+//        }
 //        catch (IOException e) {
 //            e.printStackTrace();
 //        }
@@ -104,7 +103,7 @@ public class TileManager {
     }
 //    public void loadMap() {
 //        try {
-//            BufferedReader br = new BufferedReader(new FileReader("src/newProject.data/maze.txt"));
+//            BufferedReader br = new BufferedReader(new FileReader("src/newProject.project.data/maze.txt"));
 //
 //            String line;
 //            int row = 0;

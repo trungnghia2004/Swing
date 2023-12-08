@@ -63,4 +63,100 @@ public class CollisionChecker {
             }
         }
     }
+//    public int checkEntity(Entity project.entity, Entity[] target) {
+//        int idx = 999;
+//        for (int i = 0; i < target.length; i++) {
+//            if (target[i] != null) {
+//                project.entity.solidArea.x = project.entity.worldX + project.entity.solidArea.x;
+//                project.entity.solidArea.y = project.entity.worldX + project.entity.solidArea.y;
+//
+//                //get player's solidArea position
+//                target[i].solidArea.x = target[i].worldX + target[i].solidArea.x;
+//                target[i].solidArea.y = target[i].worldY + target[i].solidArea.y;
+//
+//                switch (project.entity.direction) {
+//                    case "up" -> {
+//                        project.entity.solidArea.y -= project.entity.speed;
+//                        if (project.entity.solidArea.intersects(target[i].solidArea)) {
+//                            project.entity.collisionOn = true;
+//
+//                            idx=i;
+//                        }
+//                    }
+//                    case "down" -> {
+//                        project.entity.solidArea.y += project.entity.speed;
+//                        if (project.entity.solidArea.intersects(target[i].solidArea)) {
+//                            project.entity.collisionOn = true;
+//
+//                            idx=i;
+//                        }
+//                    }
+//                    case "left" -> {
+//                        project.entity.solidArea.x -= project.entity.speed;
+//                        if (project.entity.solidArea.intersects(target[i].solidArea)) {
+//                  idx=i;
+//                            gp.gameOver = true;
+//                        }
+//                    }
+//                    case "right" -> {
+//                        project.entity.solidArea.x += project.entity.speed;
+//                        if (project.entity.solidArea.intersects(target[i].solidArea)) {
+//                            project.entity.collisionOn = true;
+//                     idx=i;
+//                        }
+//                    }
+//                }
+//                project.entity.solidArea.x = 20;
+//                project.entity.solidArea.y = 20;
+//                target[i].solidArea.x= 20;
+//                target[i].solidArea.y=20;
+//            }
+//        }
+//return idx;
+//    }
+//    public void checkPlayer(Entity project.entity) {
+//        //get project.entity's solidArea position
+//        project.entity.solidArea.x = project.entity.worldX + project.entity.solidArea.x;
+//        project.entity.solidArea.y = project.entity.worldX + project.entity.solidArea.y;
+//
+//        //get player's solidArea position
+//        gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
+//        gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
+//
+//        switch (project.entity.direction) {
+//            case "up" -> {
+//                project.entity.solidArea.y -= project.entity.speed;
+//                if (project.entity.solidArea.intersects(gp.player.solidArea)) {
+//                    project.entity.collisionOn = true;
+//                    gp.gameOver = true;
+//                }
+//            }
+//            case "down" -> {
+//                project.entity.solidArea.y += project.entity.speed;
+//                if (project.entity.solidArea.intersects(gp.player.solidArea)) {
+//                    project.entity.collisionOn = true;
+//                    gp.gameOver = true;
+//                }
+//            }
+//            case "left" -> {
+//                project.entity.solidArea.x -= project.entity.speed;
+//                if (project.entity.solidArea.intersects(gp.player.solidArea)) {
+//                    project.entity.collisionOn = true;
+//                    gp.gameOver = true;
+//                }
+//            }
+//            case "right" -> {
+//                project.entity.solidArea.x += project.entity.speed;
+//                if (project.entity.solidArea.intersects(gp.player.solidArea)) {
+//                    project.entity.collisionOn = true;
+//                    gp.gameOver = true;
+//                }
+//            }
+//        }
+//        project.entity.solidArea.x = 20;
+//        project.entity.solidArea.y = 20;
+//        gp.player.solidArea.x= 20;
+//        gp.player.solidArea.y=20;
+//
+//    }
 }

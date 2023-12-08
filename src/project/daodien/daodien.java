@@ -21,7 +21,7 @@ public class daodien extends JFrame implements ActionListener {
 
         ImageIcon logo = new ImageIcon("src\\project\\imag\\logo.png");
 
-      //  ImageIcon logo = new ImageIcon("src\\project\\test2\\imag");
+      //  ImageIcon logo = new ImageIcon("src\\project\\project.test2\\imag");
 
         this.getContentPane().setBackground(Color.black);
         this.setIconImage(logo.getImage());

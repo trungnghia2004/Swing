@@ -1,14 +1,13 @@
 package project.test2;
 
 
-
 import project.entity.Entity;
 import project.entity.Player;
+import project.findPath.PathFinder;
 import project.tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16;
@@ -23,7 +22,7 @@ public class GamePanel extends JPanel implements Runnable {
 //    public final int worldWidth = tileSize * maxWorldCol;
 //    public final int worldHeight = tileSize * maxWorldRow;
 
-    int FPS = 240;
+    int FPS = 100;
     Thread gameThread;
     KeyHandler keyH = new KeyHandler();
     public Player player = new Player(this, keyH);
@@ -31,8 +30,10 @@ public class GamePanel extends JPanel implements Runnable {
     public AssetSetter assetSetter = new AssetSetter(this);
     public Entity[] monsters= new Entity[10];
     public TileManager tileManager = new TileManager(this);
+    public boolean gameOver;
+    public PathFinder pathFinder = new PathFinder(this);
 
-    public GamePanel() throws IOException {
+    public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
@@ -90,6 +91,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
+        if (gameOver) return;
         player.update();
         for (int i = 0; i < monsters.length; i++) {
             if (monsters[i]!=null) {
